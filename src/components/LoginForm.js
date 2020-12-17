@@ -5,7 +5,7 @@ function LoginForm(props) {
     return (
         <>
             <div className="borderBox">
-                <div className="logo"><img src="/images/logo.png" alt="logo" /></div>
+                <div className="logo"><img src="/images/logo.png" draggable="false" alt="logo" /></div>
                 <form action="" method="post">
                     <div className="inputId">
                         <input type="text" required />

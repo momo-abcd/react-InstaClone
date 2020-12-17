@@ -1,8 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Smartphone.css';
-// import 'js/app.js';
+import BackgroundSlider from './BackgroundSlider.js'
 
 function Smartphone(props){
+
+    const [index, setIndex] = useState(0);
+    
+
+    useEffect(() => {
+        let interval = setInterval(countIndex, 1000);
+        return () => {
+            clearInterval(interval);
+        }
+   
+    });
+    const countIndex = () =>{
+        if(index > 3) setIndex(0);
+        else{setIndex(index+1)};
+    } 
 
         return (
             <div>
@@ -14,7 +29,7 @@ function Smartphone(props){
                 <img id="third" className = "basicImg" src="/images/screenshot03.jpg" alt=""></img>
                 <img id="fourth" className = "basicImg" src="/images/screenshot04.jpg" alt=""></img>
                 <img id="fifth" className = "basicImg" src="/images/screenshot05.jpg" alt=""></img> */}
-                <BackgroundSlider />
+                <BackgroundSlider index={index}/>
             </div>
         </div>
         </div>
