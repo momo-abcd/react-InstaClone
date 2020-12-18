@@ -1,0 +1,13 @@
+.basicImg {
+    position:absolute;
+    opacity:0;
+    visibility: hidden;
+}
+.nowImg, .nextImg{
+    opacity:1;
+    visibility: visible;
+}
+.nextImg{
+    transition:opacity 2s ease-in;
+    z-index:2;
+}

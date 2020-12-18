@@ -3,17 +3,17 @@ import './LoginForm.css';
 
 function LoginForm(props) {
     return (
-        <>
+        <div>
             <div className="borderBox">
-                <div className="logo"><img src="/images/logo.png" alt="logo" /></div>
+                <div className="logo"><img src="/images/logo.png" draggable="false" alt="logo" /></div>
                 <form action="" method="post">
                     <div className="inputId">
                         <input type="text" required />
-                        <label for="email">전화번호 사용자 이름 또는 이메일</label>
+                        <label htmlFor="email">전화번호 사용자 이름 또는 이메일</label>
                     </div>
                     <div className="inputPassword">
                         <input type="password" name="" id="password" required />
-                        <label for="password">비밀번호</label>
+                        <label htmlFor="password">비밀번호</label>
                     </div>
                     <button className="loginBtn" type="submit"> 로그인 </button>
                 </form>
@@ -41,7 +41,7 @@ function LoginForm(props) {
                     <a href="https://play.google.com/store/apps/details?id=com.instagram.android&referrer=utm_source%3Dinstagramweb%26utm_campaign%3DloginPage%26ig_mid%3D3F5BD966-376D-4CEB-87F4-82B6271BE459%26utm_content%3Dlo%26utm_medium%3Dbadge"><img src="/images/googlePlay.png" alt="googlePlay" /></a>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 
