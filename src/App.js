@@ -1,9 +1,10 @@
 import React, { useEffect, useState }from 'react';
 import axios from 'axios';
 
-
-import LoginForm from './components/LoginForm.js';
-import Smartphone from './components/Smartphone.js';
+import { BrowserRouter, Route } from 'react-router-dom';
+// import LoginForm from './components/LoginForm.js';
+// import Smartphone from './components/Smartphone.js';
+import MainLogin from './components/MainLogin.js';
 import './App.css';
 
 
@@ -26,15 +27,15 @@ function App(props){
     }
     return (
         <>
-        <div className="container">
-            <div id='smartphone'>
-                <Smartphone/>
-            </div>
-            <div id='loginform'>
-                <LoginForm />
-            </div>
+            <BrowserRouter>
+                <Route path="/">
+                    <MainLogin />
+                </Route>
+                <Route path="/login">
+                    <p>hello!</p>
+                </Route>
+                    </BrowserRouter>
             <p>{host.data}</p>
-        </div>
         </>
     );
 }

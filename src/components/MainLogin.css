@@ -1,0 +1,17 @@
+body {
+    margin:0;
+    background-color:#fafafa;
+}
+.mainContainer {
+    width:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:32px auto 0;
+}
+#smartphone{
+    margin-right:27px;
+}
+#loginform{
+    margin-top:10px;
+}

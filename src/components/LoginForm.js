@@ -1,12 +1,25 @@
 import React from 'react';
 import './LoginForm.css';
+import axios from 'axios';
 
+
+function postLogin(){
+    async () => {
+        const res = await axios.post('/login',{
+            params: {
+                foo:'bar'
+            }
+        });
+    }
+}
 function LoginForm(props) {
+
+    
     return (
         <div>
             <div className="borderBox">
                 <div className="logo"><img src="/images/logo.png" draggable="false" alt="logo" /></div>
-                <form action="" method="post">
+                <form action="/login" method="post">
                     <div className="inputId">
                         <input type="text" required />
                         <label htmlFor="email">전화번호 사용자 이름 또는 이메일</label>
