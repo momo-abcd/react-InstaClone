@@ -1,41 +1,37 @@
-import React, { useEffect, useState }from 'react';
+// import React, { useState }from 'react';
 import axios from 'axios';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-import { BrowserRouter, Route } from 'react-router-dom';
-// import LoginForm from './components/LoginForm.js';
-// import Smartphone from './components/Smartphone.js';
 import MainLogin from './components/MainLogin.js';
+import ReigsterForm from './components/RegisterForm.js';
 import './App.css';
 
 
 function App(props){
-    const [host,setHost] = useState({data:''})
-
-    useEffect(() => {
-        _getHost();
-    },[])
-
-    const _getHost = async() => {
-        const res = await axios.get('/test');
-        // setHost({
-        //     ...host,
-        //     [data]:res.data
-        // });
-        setHost({data:res.data});
-
-        console.log(res.data);
+    const isLogin = async() => {
+        const jwt = document.cookie.split('=')[1]
+        const res = await axios.post('/test',{
+            "jwt":jwt,
+        });
     }
+    // isLogin();
+
     return (
         <>
             <BrowserRouter>
-                <Route path="/">
-                    <MainLogin />
-                </Route>
-                <Route path="/login">
+                <Switch>
+                    <Route exact path="/">
+                        <MainLogin />
+                    </Route>
+                    <Route path="/accounts/emailsignup" >
+                        <ReigsterForm />
+                    </Route>
+                    {/* <Route path="/login">
                     <p>hello!</p>
-                </Route>
-                    </BrowserRouter>
-            <p>{host.data}</p>
+                </Route> */}
+                <Route path="/">page not found</Route>
+                </Switch>
+            </BrowserRouter>
         </>
     );
 }

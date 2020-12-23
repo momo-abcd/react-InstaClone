@@ -1,16 +1,33 @@
+a {text-decoration: none; color:#000;}
+.ReFo {
+    height:100%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top:35px;
+    margin-bottom:35px;
+}
 .borderBox {
     /* width:350px;height:380px; */
-    width:350px;
+    width:348px;
     background-color:#fff;
     border:1px solid #DBDBDB;
     display:flex;
     align-items: center;
     flex-direction: column;
     margin-bottom:10px;
+    padding-bottom:27px;
 }
-.logo{
+.ReFo .ReFo-logo{
     margin-top:15px;
-    margin-bottom: 20px;;
+    /* margin-bottom: 20px;; */
+}
+.regiIntro {
+    color:#8e8e8e;
+    font-size:17px;
+    font-weight:600;
+    text-align: center;
+    margin:0 40px 10px 40px;
 }
 .borderBox form {
     box-sizing: border-box;
@@ -19,10 +36,10 @@
 
 /* email, pw input  */
 
-.inputId, .inputPassword {
+.inputText{
     position: relative;
 }
-.inputPassword label, .inputId label{
+.inputText label{
     position: absolute;
     font-size:12px;
     color:#8e8e8e;
@@ -31,19 +48,19 @@
     transition: top 0.2s ease;
 }
 
-.inputPassword input:focus, .inputId input:focus{
+.inputText input:focus{
     outline:none;
     border-color:#acabab;
 }
-.inputPassword input:valid, .inputId input:valid{
+.inputText input:valid{
     padding-top:9px;
 }
-.inputPassword input:valid +  label , .inputId input:valid +  label{
+.inputText input:valid +  label{
     font-size: 8px;
     top:2px;
 }
 
-.inputId input{
+.inputText input{
     background-color:#FAFAFA;
     width:258px;height:36px;
     border:1px solid #DBDBDB;
@@ -52,18 +69,8 @@
     margin-bottom:6px;
     padding-left:8px;
 }
-.inputPassword input {
-    background-color:#FAFAFA;
-    width:258px;height:36px;
-    border:1px solid #DBDBDB;
-    box-sizing: border-box;
-    border-radius: 3px;
-    margin-bottom:6px;
-    padding-left:8px;
-}
-
 /* login button */
-.borderBox .loginBtn {
+.borderBox .btn {
     box-sizing: border-box;
     width:258px;height:30px;
     background-color:#B8DDFB;
@@ -95,37 +102,16 @@
     margin:0 15px;
     font-weight :600;
 }
-
-.loginFb{
-    display:flex;
-    flex-direction: row;
-    background:none;
-    border:none;
-    color:#385185;
-    font-size:14px;
-    font-weight:600;
-    outline:none;
-    cursor: pointer;
-}
-.fbLogo {
-    margin-right:6px;
-}
-
-.findPassword {
-    color:#00376b;
-    margin:12px 0 18px;
+.policy {
+    color:#8e8e8e;
     font-size:12px;
+    text-align:center;
+    margin:10px 40px;
 }
-
-.register p{
-    font-weight:300;
-    margin:15px;
+.policy a {
+    color:#8e8e8e;
+    font-weight: bold;
 }
-.register  span {
-    color:#0095f6;
-    font-weight:700;
-}
-
 
 .downApp {
     display:flex;
@@ -139,6 +125,7 @@
 .downImg {
     display:flex;
     justify-content: center;
+     margin-top:10px;
 }
 .downImg img {
     height:40px;

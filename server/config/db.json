@@ -1,0 +1,9 @@
+{
+    "development" : {
+        "username" : "root",
+        "password" : "yangxx123",
+        "database" : "instaclonedb",
+        "host" : "localhost",
+        "dialect" : "mysql"
+    }
+}

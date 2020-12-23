@@ -1,25 +1,36 @@
 import React from 'react';
 import './LoginForm.css';
 import axios from 'axios';
+import { BrowserRouter, Link} from 'react-router-dom';
 
 
-function postLogin(){
-    async () => {
-        const res = await axios.post('/login',{
-            params: {
-                foo:'bar'
-            }
-        });
-    }
-}
+// function postLogin(){
+//     async () => {
+//         const res = await axios.post('/login',{
+//             params: {
+//                 foo:'bar'
+//             }
+//         });
+//     }
+// }
 function LoginForm(props) {
-
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        console.log(event.target[1].value)
+        // async () => {
+            const res = axios.post('/login',{
+                email:event.target[0].value,
+                password:event.target[1].value
+            });
+        // }
+        res.then((a) => console.log(a.data));
+    }
     
     return (
         <div>
             <div className="borderBox">
                 <div className="logo"><img src="/images/logo.png" draggable="false" alt="logo" /></div>
-                <form action="/login" method="post">
+                <form onSubmit={handleSubmit}>
                     <div className="inputId">
                         <input type="text" required />
                         <label htmlFor="email">전화번호 사용자 이름 또는 이메일</label>
@@ -44,7 +55,7 @@ function LoginForm(props) {
             </div>
 
             <div className="borderBox register">
-                <p className="register">계정이 없으신가요? <span>가입하기</span></p>
+                <p className="register">계정이 없으신가요? <Link to="/accounts/emailsignup"><span>가입하기</span></Link></p>
             </div>
 
             <div className="downApp">
