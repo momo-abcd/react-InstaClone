@@ -1,29 +1,28 @@
 import React from 'react';
 import './LoginForm.css';
 import axios from 'axios';
-import { BrowserRouter, Link} from 'react-router-dom';
+import { BrowserRouter, Link, useHistory} from 'react-router-dom';
 
 
-// function postLogin(){
-//     async () => {
-//         const res = await axios.post('/login',{
-//             params: {
-//                 foo:'bar'
-//             }
-//         });
-//     }
-// }
 function LoginForm(props) {
+    let history = useHistory();
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(event.target[1].value)
+        // console.log(event.target[1].value)
         // async () => {
-            const res = axios.post('/login',{
+            axios.post('/login',{
                 email:event.target[0].value,
                 password:event.target[1].value
-            });
+            })
+            .then(data=>{
+                localStorage.setItem('asd',data.data);
+                console.log('지금 확인 : ',   data);
+                console.log(data.config.data);
+                // history.push(`/${data.data}`);
+            })
+            .catch(err=>{console.log(1234)});
         // }
-        res.then((a) => console.log(a.data));
+        // res.then((a) => console.log(a.data));
     }
     
     return (

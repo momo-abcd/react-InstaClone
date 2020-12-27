@@ -1,29 +1,20 @@
 const { User } = require('./models');
 const jwt = require('jsonwebtoken');
-const path = require('path');
-const secretKey = require(path.join(__dirname, '.', 'config', 'jwt.json')).secret;
+const path = require('path'); const secretKey = require(path.join(__dirname, '.', 'config', 'jwt.json')).secret;
 const util = require('util');
 
 module.exports = {
     api : {
         verifyLogin : (req,res) => {
-            // try{
-            // const decoded = jwt.verify(req.body.jwt,secretKey,{algorithms:['RS256']});;
-            // }catch(e){
-            //     console.log(123123)
-            //     throw e;
-            // }
-            // res.send(decoded);
-            // if(decoded){
-            //     console.log('true');
-            // }else{
-            //     console.log('false');
-            // }
-            // console.log('decoded의값은 : ' + decoded);
             jwt.verify(req.body.jwt,secretKey,(err,data)=>{
                 if(err) {
                     console.log(123456)
                     console.log('에러내용 : ' + err)
+                }
+                if(data){
+                    res.json({isAuth:true});
+                }else {
+                    res.json(isAuth:flase);
                 }
                 console.log(data);
             });
@@ -46,17 +37,17 @@ module.exports = {
                         secretKey, {
                         expiresIn: '1h'
                     });
-                    res.cookie('asd',token);
-                    // res.send('asd');
-                    res.status(201).json({
-                        result:'ok',
-                        token
-                    });
+                    // res.cookie('asd',token);
+                    res.send(result.nickname);
+                    // res.status(201).json({
+                    //     result:'ok',
+                    //     token
+                    // });
                 }else{
                     console.log('faild');
                 }
             })
-                .catch(err => console.log(err));
+            .catch(err => console.log(err));
 
 
         },

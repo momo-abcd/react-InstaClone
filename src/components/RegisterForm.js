@@ -57,7 +57,7 @@ function ReigsterForm(props) {
                         </div>
                         <button className="btn" type="submit"> 가입 </button>
                     </form>
-                    <p class="policy">가입하면 Instagram의 <a href="">약관</a>, <a href="">데이터 정책</a> <a href="">및 쿠키 정책</a>에 동의하게 됩니다.</p>
+                    <p className="policy">가입하면 Instagram의 <a href="">약관</a>, <a href="">데이터 정책</a> <a href="">및 쿠키 정책</a>에 동의하게 됩니다.</p>
                 </div>
 
                 <div className="downApp">

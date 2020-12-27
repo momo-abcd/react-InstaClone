@@ -1,42 +1,52 @@
-// import React, { useState }from 'react';
+import React, { useEffect, useState }from 'react';
 import axios from 'axios';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Link } from 'react-router-dom';
 
 import MainLogin from './components/MainLogin.js';
-import ReigsterForm from './components/RegisterForm.js';
+import RegisterForm from './components/RegisterForm.js';
+import AuthRoute from './hoc/AuthRoute.js';
 import './App.css';
 
 
 function App(props){
-    const isLogin = async() => {
-        const jwt = document.cookie.split('=')[1]
-        const res = await axios.post('/test',{
-            "jwt":jwt,
-        });
-        console.log(res);
+    // const auth= () => {
+        const [isAuth, setIsAuth] = useState(false);
+        // console.log('맨 처음 isAuth의 갑스',isAuth)
+        // console.log('현재 isAuth의 값은 ', isAuth)
+        // useEffect(async () => {
+        //     if (localStorage.getItem('asd')) {
+        //         const jwt = localStorage.getItem('asd');
+        //         const res = await axios.post('/test', {
+        //             "jwt": jwt,
+        //         }).
+        //             then(data => {
+        //                 console.log('현재 isAuth의 값: ',isAuth);
+        //                 setIsAuth(true);
+        //             })
+        //     } else {
+        //         console.log('jwt가 없습니다.');
+        //     }
+        // })
+    // }
+    const handleSetIsAuth = (e) => {
+        setIsAuth(e);
     }
-    // isLogin();
-    const ccc = (e) => {
-        isLogin();
-    }
-
+    
     return (
         <>
             <BrowserRouter>
                 <Switch>
                     <Route exact path="/">
-                        <MainLogin />
+                    <AuthRoute component={ MainLogin } handleSetIsAuth={e => handleSetIsAuth(e)} isAuthenticated={isAuth}/>
                     </Route>
                     <Route path="/accounts/emailsignup" >
-                        <ReigsterForm />
+                        <RegisterForm />
                     </Route>
-                    {/* <Route path="/login">
-                    <p>hello!</p>
-                </Route> */}
+                    <AuthRoute path="/temp/" component={ RegisterForm } isAuthenticated={isAuth}/>
                 <Route path="/">page not found</Route>
                 </Switch>
-            </BrowserRouter>
-            <button type='button' onClick={ccc}>클릭하시오</button>
+            <Link to="/temp">클릭하시오</Link>
+           </BrowserRouter>
         </>
     );
 }
