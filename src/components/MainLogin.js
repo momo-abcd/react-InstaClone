@@ -1,6 +1,6 @@
-// import React, { useEffect, useState }from 'react';
-import LoginForm from './LoginForm.js';
+import React, { Component } from 'react';
 import SmartPhone from './Smartphone.js';
+import LoginForm from './LoginForm.js';
 
 import './MainLogin.css';
 

@@ -16,14 +16,13 @@ import { BrowserRouter, Link} from 'react-router-dom';
 function LoginForm(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
-        console.log(event.target[1].value)
         // async () => {
             const res = axios.post('/login',{
                 email:event.target[0].value,
                 password:event.target[1].value
             });
         // }
-        res.then((a) => console.log(a.data));
+        res.then((a) => localStorage.setItem('asd',a.data.token));
     }
     
     return (

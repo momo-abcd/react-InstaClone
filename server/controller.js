@@ -8,7 +8,9 @@ module.exports = {
     api : {
         verifyLogin : (req,res) => {
             const decoded = jwt.verify(req.body.jwt,secretKey);
+            if(decoded) res.send(true);
             console.log(decoded);
+            console.log('________________');
         },
 
 
@@ -28,11 +30,11 @@ module.exports = {
                         secretKey, {
                         expiresIn: '1h'
                     });
-                    res.cookie('asd',token);
-                    // res.status(201).json({
-                    //     result:'ok',
-                    //     token
-                    // });
+                    
+                    res.status(201).json({
+                        result:'ok',
+                        token
+                    });
                 }else{
                     console.log('faild');
                 }
