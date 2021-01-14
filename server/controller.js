@@ -8,7 +8,7 @@ module.exports = {
     api : {
         verifyLogin : (req,res) => {
             const decoded = jwt.verify(req.body.jwt,secretKey);
-            if(decoded) res.send(true);
+            if(decoded) res.send(decoded.user_id);
             console.log(decoded);
             console.log('________________');
         },

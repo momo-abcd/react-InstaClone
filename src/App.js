@@ -9,7 +9,6 @@ import './App.css';
 
 
 import store from './components/redux/store';
-import { Provider } from 'react-redux';
 import { loadUser } from './components/redux/actions/authAction';
 
 
@@ -17,6 +16,7 @@ export default class App extends Component{
    
     constructor(props) {
         super(props);
+
     }
     componentDidMount() {
         store.dispatch(loadUser())
@@ -28,12 +28,14 @@ export default class App extends Component{
     render(){
         return (
             <>
-            <Provider store={store}>
                 <BrowserRouter>
                     <Switch>
                         <Route exact path="/">
-                            <AuthRoute component={MainLogin}  />
+                            <AuthRoute   />
                             {/* <MainLogin /> */}
+                        </Route>
+                        <Route path="/home" >
+                            <ReigsterForm />
                         </Route>
                         <Route path="/accounts/emailsignup" >
                             <ReigsterForm />
@@ -44,7 +46,6 @@ export default class App extends Component{
                     <Route path="/">page not found</Route>
                     </Switch>
                 </BrowserRouter>
-            </Provider>
             </>
         );
 

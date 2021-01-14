@@ -2,6 +2,7 @@ import React from 'react';
 import './LoginForm.css';
 import axios from 'axios';
 import { BrowserRouter, Link} from 'react-router-dom';
+import { login } from './redux/actions/authAction';
 
 
 // function postLogin(){
@@ -17,12 +18,18 @@ function LoginForm(props) {
     const handleSubmit = (event) => {
         event.preventDefault();
         // async () => {
-            const res = axios.post('/login',{
-                email:event.target[0].value,
-                password:event.target[1].value
-            });
+            // const res = axios.post('/login',{
+            //     email:event.target[0].value,
+            //     password:event.target[1].value
+            // });
         // }
-        res.then((a) => localStorage.setItem('asd',a.data.token));
+        // res.then((a) => localStorage.setItem('asd',a.data.token));
+        const user = {
+            email: event.target[0].value,
+            password: event.target[1].value
+        };
+        login(user);
+
     }
     
     return (
