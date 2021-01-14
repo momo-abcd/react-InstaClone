@@ -33,7 +33,7 @@ export const loadUser = () => (dispatch, getState) => {
     .catch(err => {console.log(err)});
 }
 
-export const login = ( {email_, password_ } ) => (dispatch, getState) => {
+export const login = ( { email_, password_ } ) => (dispatch) => {
     console.log('authAction.js login 함수실행');
     axios.post('/login', {
         email:email_,

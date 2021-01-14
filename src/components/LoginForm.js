@@ -4,6 +4,7 @@ import axios from 'axios';
 import { BrowserRouter, Link} from 'react-router-dom';
 import { login } from './redux/actions/authAction';
 
+import store from './redux/store';
 
 // function postLogin(){
 //     async () => {
@@ -25,10 +26,10 @@ function LoginForm(props) {
         // }
         // res.then((a) => localStorage.setItem('asd',a.data.token));
         const user = {
-            email: event.target[0].value,
-            password: event.target[1].value
+            email_: event.target[0].value,
+            password_: event.target[1].value
         };
-        login(user);
+        store.dispatch(login(user));
 
     }
     
