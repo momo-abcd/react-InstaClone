@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Route, Redirect } from 'react-router-dom';
 import Smarthphone from '../components/Smartphone';
 import MainLogin from '../components/MainLogin';
+import Loading from '../components/Loading';
+import Nav from '../components/mainComponents/Nav';
 
 import { connect } from 'react-redux';
 
@@ -13,10 +15,10 @@ function AuthRoute({ auth }) {
     console.log(123,auth.isAuthenticated);
     console.log(456,auth.isLoading);
      if(auth.isLoading){
-        return (<div>로딩중!!!!</div> )
+        return ( <Loading /> )
     }
     if(auth.isAuthenticated){
-        return (<div>로그인 되었음</div>)
+        return (<Nav />)
     }else {
         return (<MainLogin />)
     }
