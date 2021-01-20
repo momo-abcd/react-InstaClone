@@ -17,7 +17,7 @@ nav .borderBox {
     /* padding:0 20px; */
 }
 nav .navContainer {
-    width:50%;
+    width:100%;
     display:flex;
     padding:0 20px;
 }
@@ -30,6 +30,7 @@ nav .search {
 nav .searchInput {
     width:215px;height:28px;
     position: relative;
+    margin-top:6px;
 }
 nav .search input{
     background-color:#FAFAFA;
@@ -51,10 +52,11 @@ nav .search input:focus::placeholder {
     color:#8e8e8e;
     font-size:13px;
 }
-nav .search input:focus ~ #searchText {
-    color:white;
-}
-nav .search input:focus ~ .searchGlass {
+ nav .search input:valid ~ #searchText, nav .search input:focus ~ #searchText {
+    display:none;
+ }
+ 
+nav .search input:valid ~ .searchGlass , nav .search input:focus ~ .searchGlass {
     left:10px;
 }
 
@@ -63,8 +65,16 @@ nav .searchGlass {
     height:10px;
     width:10px;
 }
-nav .search span,
-nav .search label {
+nav .searchQuit{
+    background-position:-318px -333px;
+    height:20px;width:20px;
+    position: absolute;
+    right:5px;
+    top:5px;
+    display:none;
+}
+nav  .searchGlass,
+nav  #searchText {
     position: absolute;
     z-index: 999;
     top:4px;
@@ -73,11 +83,11 @@ nav .search label span:hover,
 nav .search label:hover {
     cursor:text;
 }
-nav .search span{
+nav .searchGlass{
     left:70px;
     top:9px;
 }
-nav .search label{
+nav #searchText{
     color:#8e8e8e;
     font-size:14px;
     left:85px;
@@ -86,18 +96,22 @@ nav .menu{
     flex-grow:1;
     display:flex;
     justify-content:flex-end;
-    /* justify-content: space-between;  */
 }
 nav .menu .menuList {
-    width:70%;
+    /* width:80%; */
     display:flex;
-    justify-content:flex-end;
-    justify-content: space-between; 
+    /* justify-content: space-between;  */
     align-items: center;
 }
+nav .menu .menuList > * {
+    margin-left:20px;
+}
 
-@media screen and (max-width:952px){
+@media screen and (min-width:952px){
     nav .navContainer {
-        width:100%;
+        width:50%;
     }
+    /* nav .menu .menuList {
+        width:100%;
+    } */
 }

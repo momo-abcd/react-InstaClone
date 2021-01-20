@@ -9,6 +9,7 @@ const Nav = (props) => {
     const palceholderHandler = () => {
         searchPlaceholder.current.classList.add('searchPlaceholder');
     }
+   
     return (
         <nav >
             <div className="borderBox">
@@ -27,9 +28,11 @@ const Nav = (props) => {
                                 placeholder="검색"
                                 onFocus={palceholderHandler}
                                 ref={searchPlaceholder}
+                                required
                             />
                              <span style={glass} className="searchGlass" ref={searchGlassDom} ></span>
                             <label  id="searchText" for="search">검색</label>
+                             <span style={glass} className="searchQuit" ref={searchGlassDom} ></span>
                         </div>
                     </div>
                         <div className="menu">
