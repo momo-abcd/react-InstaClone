@@ -1,0 +1,16 @@
+nav .menu .menuList {
+    /* width:80%; */
+    display:flex;
+    align-items: center;
+}
+nav .menu .menuList > * {
+    margin-left:20px;
+}
+
+nav .modal {
+    background-color:red;
+    opacity: 0.1;
+    position: absolute;
+    top:0;bottom:0;left:0;right:0;
+    display:fixed;
+}
